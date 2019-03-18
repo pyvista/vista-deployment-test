@@ -1,9 +1,16 @@
 sudo: required
 
+dist: xenial
+
 os:
   - linux
 
 language: python
+
+addons:
+  apt:
+    packages:
+      - libgl1-mesa-dev
   
 matrix:
   include:
