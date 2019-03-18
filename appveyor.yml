@@ -11,13 +11,11 @@ environment:
 
     - PYTHON_VERSION: 3.6
       CONDA: C:\Miniconda36
-      environment:
-        - PROVIDER: "pypi"
+      PROVIDER: "pypi"
     
     - PYTHON_VERSION: 3.6
       CONDA: C:\Miniconda36
-      environment:
-        - PROVIDER: "conda"
+      PROVIDER: "conda"
 
 image: Visual Studio 2015
 
