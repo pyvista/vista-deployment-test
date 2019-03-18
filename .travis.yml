@@ -1,16 +1,9 @@
 sudo: required
 
-dist: xenial
-
 os:
-  - linux
+  - osx
 
 language: python
-
-addons:
-  apt:
-    packages:
-      - &mesa_apt [mesa-libGL-devel]
   
 matrix:
   include:
