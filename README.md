@@ -1,6 +1,6 @@
 # vtki-deployment-test
 
-[![Build Status](https://travis-ci.org/vtkiorg/vtki-deployment-test.svg?branch=master)](https://travis-ci.org/vtkiorg/vtki-deployment-test)
+[![Unix Status](https://img.shields.io/travis/vtkiorg/vtki-deployment-test/master.svg?label=build&logo=travis)](https://travis-ci.org/vtkiorg/vtki-deployment-test)
 
 A set of simple scripts for testing vtki installation across platforms and providers.
 
