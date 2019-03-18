@@ -37,11 +37,11 @@ install:
   - conda install --yes numpy matplotlib pip
   # Download from chosen provider
   - |
-    if [[ $PROVIDER != "pypi" ]]; then
+    if [[ $PROVIDER == "pypi" ]]; then
       pip install --upgrade vtki
     fi
   - |
-    if [[ $PROVIDER != "conda" ]]; then
+    if [[ $PROVIDER == "conda" ]]; then
       conda config --add channels conda-forge
       conda install --yes vtki
     fi
