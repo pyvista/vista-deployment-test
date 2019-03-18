@@ -10,7 +10,7 @@ language: python
 addons:
   apt:
     packages:
-      - &full_apt [mesa-libGL-devel]
+      - &mesa_apt [mesa-libGL-devel]
   
 matrix:
   include:
