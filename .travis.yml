@@ -34,6 +34,7 @@ before_install:
 install:
   - conda create --yes -n test python=$TRAVIS_PYTHON_VERSION
   - source activate test
+  - conda install --yes -c anaconda mesa-libgl-devel-cos6-x86_64
   - conda install --yes numpy matplotlib pip
   # Download from chosen provider
   - |
