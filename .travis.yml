@@ -23,7 +23,7 @@ before_install:
   # configure a headless display
   - git clone --depth 1 git://github.com/vtkiorg/gl-ci-helpers.git
   - sh ./gl-ci-helpers/travis/setup_headless_display.sh
-  - echo "vtki.OFF_SCREEN should be $VTKI_OFF_SCREEN"
+  - echo $VTKI_OFF_SCREEN
   - wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh
   - chmod +x miniconda.sh
   - ./miniconda.sh -b
