@@ -17,14 +17,13 @@ matrix:
   allow_failures:
     - python: 2.7
       env: PROVIDER="pypi"
-      
+
+
 before_install:
   # configure a headless display
   - git clone --depth 1 git://github.com/vtkiorg/gl-ci-helpers.git
   - ./gl-ci-helpers/travis/setup_headless_display.sh
   - echo "vtki.OFF_SCREEN should be $VTKI_OFF_SCREEN"
-
-before_install:
   - wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh
   - chmod +x miniconda.sh
   - ./miniconda.sh -b
