@@ -18,10 +18,10 @@ matrix:
     - python: 2.7
       env: PROVIDER="pypi"
       
-before_script:
+before_install:
   # configure a headless display
   - git clone --depth 1 git://github.com/vtkiorg/gl-ci-helpers.git
-  - sh gl-ci-helpers/travis/setup_headless_display.sh
+  - ./gl-ci-helpers/travis/setup_headless_display.sh
   - echo "vtki.OFF_SCREEN should be $VTKI_OFF_SCREEN"
 
 before_install:
