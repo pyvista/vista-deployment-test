@@ -3,21 +3,6 @@ dist: xenial
 os:
   - linux
 language: python
-  
-matrix:
-  include:
-    - python: 3.6
-      env: PROVIDER="conda"
-    - python: 3.6
-      env: PROVIDER="pypi"
-    - python: 3.7
-      env: PROVIDER="conda"
-    - python: 3.7
-      env: PROVIDER="pypi"
-  allow_failures:
-    - python: 2.7
-      env: PROVIDER="pypi"
-
 
 
 before_install:
@@ -32,21 +17,37 @@ before_install:
   - export PATH=/home/travis/miniconda2/bin:$PATH
   - export PATH=/home/travis/miniconda3/bin:$PATH
   - conda update --yes conda
-
-install:
   - conda create --yes -n test python=$TRAVIS_PYTHON_VERSION
   - source activate test
   - conda install --yes numpy matplotlib pip
-  # Download from chosen provider
-  - |
-    if [[ $PROVIDER == "pypi" ]]; then
-      pip install --upgrade vtki
-    fi
-  - |
-    if [[ $PROVIDER == "conda" ]]; then
-      conda config --add channels conda-forge
-      conda install --yes vtki
-    fi
+  
+  
+matrix:
+  include:
+    # Test Anaconda installation for 3.5, 3.6, and 3.7
+    - name: Anaconda 3.5
+      python: 3.5
+      install: conda install --yes -c conda-forge vtki
+    - name: Anaconda 3.6
+      python: 3.6
+      install: conda install --yes -c conda-forge vtki
+    - name: Anaconda 3.7
+      python: 3.7
+      install: conda install --yes -c conda-forge vtki
+    # Test PyPI installation for 2.7, 3.5, 3.6, and 3.7
+    - name: PyPI 2.7
+      python: 2.7
+      install: pip install --upgrade vtki
+    - name: PyPI 3.5
+      python: 3.5
+      install: pip install --upgrade vtki
+    - name: PyPI 3.6
+      python: 3.6
+      install: pip install --upgrade vtki
+    - name: PyPI 3.7
+      python: 3.7
+      install: pip install --upgrade vtki
+
 
 script:
   - python -c "import vtk; print(vtk.VTK_VERSION)"
