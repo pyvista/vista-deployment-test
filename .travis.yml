@@ -24,10 +24,7 @@ before_install:
   
 matrix:
   include:
-    # Test Anaconda installation for 3.5, 3.6, and 3.7
-    - name: Anaconda 3.5
-      python: 3.5
-      install: conda install --yes -c conda-forge vtki
+    # Test Anaconda installation for 3.6, and 3.7
     - name: Anaconda 3.6
       python: 3.6
       install: conda install --yes -c conda-forge vtki
