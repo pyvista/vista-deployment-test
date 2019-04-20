@@ -32,6 +32,7 @@ install:
   # Use gl-ci-helpers to set up headless display
   - "git clone --depth 1 git://github.com/vtkiorg/gl-ci-helpers.git"
   - "powershell gl-ci-helpers/appveyor/install_opengl.ps1"
+  - "SET VTKI_OFF_SCREEN=True"
   # Load the conda root environment, configure and install some packages
   - '"%CONDA%\Scripts\activate.bat"'
   - conda config --set always_yes yes --set changeps1 no
