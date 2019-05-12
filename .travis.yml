@@ -9,7 +9,7 @@ before_install:
   # configure a headless display
   - git clone --depth 1 git://github.com/pyvista/gl-ci-helpers.git
   - source ./gl-ci-helpers/travis/setup_headless_display.sh
-  - echo $VISTA_OFF_SCREEN
+  - echo $PYVISTA_OFF_SCREEN
   - wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh
   - chmod +x miniconda.sh
   - ./miniconda.sh -b
@@ -27,31 +27,31 @@ matrix:
     # # Test Anaconda installation for 3.6, and 3.7
     # - name: Anaconda 3.6
     #   python: 3.6
-    #   install: conda install --yes -c conda-forge vista
+    #   install: conda install --yes -c conda-forge pyvista
     # - name: Anaconda 3.7
     #   python: 3.7
-    #   install: conda install --yes -c conda-forge vista
+    #   install: conda install --yes -c conda-forge pyvista
     # Test PyPI installation for 2.7, 3.5, 3.6, and 3.7
     - name: PyPI 2.7
       python: 2.7
-      install: pip install --upgrade vista
+      install: pip install --upgrade pyvista
     - name: PyPI 3.5
       python: 3.5
-      install: pip install --upgrade vista
+      install: pip install --upgrade pyvista
     - name: PyPI 3.6
       python: 3.6
-      install: pip install --upgrade vista
+      install: pip install --upgrade pyvista
     - name: PyPI 3.7
       python: 3.7
-      install: pip install --upgrade vista
+      install: pip install --upgrade pyvista
 
 
 script:
   - python -c "import vtk; print(vtk.VTK_VERSION)"
-  - python -c "import vista; print(vista.__version__)"
-  - python -c "import vista; print(vista.OFF_SCREEN)"
-  - python -c "from vista import examples; examples.load_globe()"
-  - python -c "from vista import examples; examples.load_uniform().plot()"
+  - python -c "import pyvista; print(pyvista.__version__)"
+  - python -c "import pyvista; print(pyvista.OFF_SCREEN)"
+  - python -c "from pyvista import examples; examples.load_globe()"
+  - python -c "from pyvista import examples; examples.load_uniform().plot()"
 
 
 notifications:
